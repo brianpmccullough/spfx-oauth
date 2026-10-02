@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "spfx-oauth-wrike-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/spfxOauthWrike/SpfxOauthWrikeWebPart.js",
+          "manifest": "./src/webparts/spfxOauthWrike/SpfxOauthWrikeWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "SpfxOauthWrikeWebPartStrings": "lib/webparts/spfxOauthWrike/loc/{locale}.js"
+  }
+}
