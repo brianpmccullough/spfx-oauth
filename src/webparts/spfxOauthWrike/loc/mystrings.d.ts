@@ -2,6 +2,8 @@ declare interface ISpfxOauthWrikeWebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
   DescriptionFieldLabel: string;
+  ApiBaseUrlFieldLabel: string;
+  ApiResourceUriFieldLabel: string;
   AppLocalEnvironmentSharePoint: string;
   AppLocalEnvironmentTeams: string;
   AppLocalEnvironmentOffice: string;
