@@ -11,9 +11,13 @@ import { IReadonlyTheme } from '@microsoft/sp-component-base';
 import * as strings from 'SpfxOauthWrikeWebPartStrings';
 import SpfxOauthWrike from './components/SpfxOauthWrike';
 import { ISpfxOauthWrikeProps } from './components/ISpfxOauthWrikeProps';
+import { WrikeService } from './services/WrikeService';
 
 export interface ISpfxOauthWrikeWebPartProps {
   description: string;
+  apiBaseUrl: string;
+  /** The API's Entra ID Application ID URI. */
+  apiResourceUri: string;
 }
 
 export default class SpfxOauthWrikeWebPart extends BaseClientSideWebPart<ISpfxOauthWrikeWebPartProps> {
@@ -28,7 +32,12 @@ export default class SpfxOauthWrikeWebPart extends BaseClientSideWebPart<ISpfxOa
         description: this.properties.description,
         isDarkTheme: this._isDarkTheme,
         environmentMessage: this._environmentMessage,
-        userDisplayName: this.context.pageContext.user.displayName
+        userDisplayName: this.context.pageContext.user.displayName,
+        wrikeService: new WrikeService(
+          this.context.aadHttpClientFactory,
+          this.properties.apiBaseUrl,
+          this.properties.apiResourceUri
+        )
       }
     );
 
@@ -109,6 +118,12 @@ export default class SpfxOauthWrikeWebPart extends BaseClientSideWebPart<ISpfxOa
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
+                }),
+                PropertyPaneTextField('apiBaseUrl', {
+                  label: strings.ApiBaseUrlFieldLabel
+                }),
+                PropertyPaneTextField('apiResourceUri', {
+                  label: strings.ApiResourceUriFieldLabel
                 })
               ]
             }

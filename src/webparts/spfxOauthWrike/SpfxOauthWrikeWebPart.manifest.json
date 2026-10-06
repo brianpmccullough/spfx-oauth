@@ -22,7 +22,9 @@
     "description": { "default": "spfx-oauth-wrike description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "spfx-oauth-wrike"
+      "description": "spfx-oauth-wrike",
+      "apiBaseUrl": "http://localhost:3000",
+      "apiResourceUri": "api://291519cc-fc6f-4cc6-8045-7db0d00a6ecb"
     }
   }]
 }
